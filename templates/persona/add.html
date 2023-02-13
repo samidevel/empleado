@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar empleado
+{% endblock title %}
+
+
+{%block content%}
+
+{%include 'includes/header.html'%}
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">
+            Registro de empleado
+        </h1>
+        <div class="cell">  
+            <form class="grid-x grid-margin-x" method="post" enctype="multipart/form-data" >{%csrf_token%}
+                <div class="cell large-6 cell">
+                    <label>Nombres:
+                        {{form.first_name}}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6 cell">
+                    <label>Apellidos:
+                        {{form.last_name}}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6 cell">
+                    <label>Trabajo:
+                        {{form.job}}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6 cell">
+                    <label>departamento:
+                        {{form.departamento }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6 cell">
+                    <label>Habilidades:
+                        {{form.habilidades }}
+                    </label>
+                  </div>
+
+                  <div class="medium-12 cell">
+                    <label>Fotos:
+                        {{form.avatar}}
+                    </label>
+
+                  </div>
+
+                  <div class="medium-12 cell">
+                    <button class="button success" type="submit">Registrar</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+
+
+
+<h1>Regitrar persona</h1>
+
+
+
+
+<form method="POST">{%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Agregar</button>
+</form>
+
